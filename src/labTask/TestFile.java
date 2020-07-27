@@ -104,22 +104,15 @@ public class TestFile {
 	
 	@Test
 	public void BehaviorAllowedTest1() throws Exception {
+		String exception = "";
 		StateMachineContext sm = new StateMachineContext();
 		try {
 		sm.Opertaion1();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		try {
 		sm.Opertaion3();
-		}catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		try {
 		sm.Operation5();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			exception = e.getMessage();
 		}
-		fail("Not possible to achieve.");
+		assertEquals("not Allowed", exception);
 	}
 }
